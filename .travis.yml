@@ -5,7 +5,7 @@ services:
   - docker
 
 before_script:
-  - docker restart
+  - docker restart $(docker ps -q)
   - docker-compose build
   - docker-compose run web bundle exec rails db:test:prepare
 
