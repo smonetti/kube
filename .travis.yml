@@ -4,8 +4,8 @@ services:
 install:
   - gem uninstall bundler
   - gem install bundler --version '2.0.2'
+  - bundle install
 
 scripts:
-  - gem install bundler:2.0.2
   - docker build . -t smonetti/kube
   - docker images smonetti/kube
