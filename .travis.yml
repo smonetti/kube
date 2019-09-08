@@ -1,10 +1,10 @@
 sudo: required
 services:
   - docker
-install:
-  - gem uninstall bundler
-  - gem install bundler --version '2.0.2'
-  - bundle install
+# install:
+#   - gem uninstall bundler
+#   - gem install bundler --version '2.0.2'
+#   - bundle install
 
 scripts:
   - docker build . -t smonetti/kube
