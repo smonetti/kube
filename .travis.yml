@@ -1,11 +1,17 @@
 sudo: required
+env:
+  - DOCKER_COMPOSE_VERSION=1.24.0
+
 services:
   - docker
-# install:
-#   - gem uninstall bundler
-#   - gem install bundler --version '2.0.2'
-#   - bundle install
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 scripts:
-  - docker build . -t smonetti/kube
-  - docker images smonetti/kube
+  - docker-compose build . -t smonetti/kube
+  # - docker images smonetti/kube
+  - bundle exec rspec
