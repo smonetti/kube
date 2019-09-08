@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+
+scripts:
+  - docker build . -t smonetti/kube
+  - docker images smonetti/kube
