@@ -1,13 +1,11 @@
 language: generic
 sudo: required
-env:
-  - DOCKER_COMPOSE_VERSION=1.24.0
 
 services:
   - docker
 
 before_script:
-  - docker-compose build . -t smonetti/kube
+  - docker-compose build
 
 script:
   - docker-compose run web rspec
