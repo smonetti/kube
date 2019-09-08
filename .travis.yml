@@ -7,7 +7,7 @@ services:
 before_script:
   - docker-compose build
   # - docker-compose down
-  - service docker restart
+  - docker restart
 
 script:
   - docker-compose run web rspec
