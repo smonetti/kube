@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - service postgresql stop
+  - sudo service postgresql stop
   - docker -v
   - docker-compose -v
 
