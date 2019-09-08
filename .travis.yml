@@ -4,9 +4,19 @@ sudo: required
 services:
   - docker
 
-before_script:
+before_install:
+  - docker -v
+  - docker-compose -v
+
+install:
   - docker-compose build
-  - docker-compose run web bundle exec rails db:test:prepare
+
+before_script:
+  # - docker-compose run --rm --no-deps web echo 'Gems now pre-installed.'
+  - docker-compose run --rm --no-deps web bundle exec rails db:test:prepare
 
 script:
   - docker-compose run web bundle exec rspec
+
+after_script:
+  - docker-compose down
