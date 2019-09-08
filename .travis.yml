@@ -12,8 +12,7 @@ install:
   - docker-compose build
 
 before_script:
-  # - docker-compose run --rm --no-deps web echo 'Gems now pre-installed.'
-  - docker-compose run --rm --no-deps web bundle exec rails db:test:prepare
+  - docker-compose run web bundle exec rails db:test:prepare
 
 script:
   - docker-compose run web bundle exec rspec
