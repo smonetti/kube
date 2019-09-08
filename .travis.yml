@@ -10,7 +10,6 @@ services:
 
 env:
   global:
-    - GOOGLE_APPLICATION_CREDENTIALS=~/kube-252321-dd29606b4e94.json
     - PROJECT_NAME_PRD=Kube
     - CLUSTER_NAME_PRD=cluster-1
     - CLOUDSDK_COMPUTE_ZONE=us-central1-a
@@ -43,7 +42,6 @@ before_deploy:
   - source /home/travis/google-cloud-sdk/path.bash.inc
   - gcloud --quiet version
   - gcloud --quiet components update
-  - gcloud --quiet components beta update
   - gcloud --quiet components update kubectl
 
 deploy:
